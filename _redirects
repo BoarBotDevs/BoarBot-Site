@@ -1,3 +1,7 @@
 /:slug /
 https://source.boarbot.dev/* https://www.github.com/WeslayCodes/BoarBot 301!
+<<<<<<< HEAD
 http://source.boarbot.dev/* https://www.github.com/WeslayCodes/BoarBot 301!
+=======
+http://source.boarbot.dev/* https://www.github.com/WeslayCodes/BoarBot 301!
+>>>>>>> 2ed5276f70113f237c2213028019a5aabd68eeb6
