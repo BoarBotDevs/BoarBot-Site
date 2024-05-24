@@ -116,18 +116,28 @@ li#nav-left {
 #nav-left button {
     border-radius: 5px;
     padding: 10px 25px;
-    background-color: #248046;
+    background-color: #5865f2;
     color: #ffffff;
-    animation: wiggle 10s infinite;
     transition: background-color .3s;
 }
 
+#bot-invite {
+    animation: wiggle 9s infinite;
+}
+
+#server-invite {
+    animation: wiggle 10s infinite;
+}
+
 #nav-left button:hover {
-    background-color: #1a6334;
+    background-color: #4752c4;
 }
 
 #nav-left img {
     width: 60px;
+}
+
+#nav-left > * {
     margin-right: 25px;
 }
 
