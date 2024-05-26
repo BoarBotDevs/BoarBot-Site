@@ -92,7 +92,7 @@ nav li {
 }
 
 main {
-    margin: 175px 50px;
+    margin: 175px 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,6 +113,10 @@ li#nav-left {
     align-items: center;
 }
 
+#nav-left a {
+    display: flex;
+}
+
 #nav-left button {
     border-radius: 5px;
     padding: 10px 25px;
@@ -121,17 +125,14 @@ li#nav-left {
     transition: background-color .3s;
 }
 
+#main-buttons button:hover {
+    background-color: #4752c4;
+}
+
 #bot-invite {
     animation: wiggle 9s infinite;
 }
 
-#server-invite {
-    animation: wiggle 10s infinite;
-}
-
-#nav-left button:hover {
-    background-color: #4752c4;
-}
 
 #nav-left img {
     width: 60px;
@@ -161,7 +162,7 @@ li#nav-left {
     content: '';
     display: block;
     position: absolute;
-    width: 50px;
+    width: 40px;
     height: 3px;
     background-color: #ffffff;
     transition: all .3s;
@@ -223,9 +224,35 @@ li#nav-left {
 }
 
 #summary p {
+    margin-bottom: 25px;
     text-align: center;
     opacity: 0%;
     animation: fadeIn 1s 1 .5s forwards;
+}
+
+#main-buttons {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    opacity: 0%;
+    animation: fadeIn 1s 1 .5s forwards;
+}
+
+#main-buttons button {
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background-color: #5865f2;
+    color: #ffffff;
+    transition: background-color .3s;
+}
+
+#server-invite {
+    animation: wiggle 10s infinite;
+}
+
+#main-buttons button:hover {
+    background-color: #4752c4;
 }
 
 .feature {
