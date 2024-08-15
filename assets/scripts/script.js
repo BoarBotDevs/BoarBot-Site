@@ -3,8 +3,8 @@ window.onload = async () => {
     fixBottomMargin();
     history.pushState('', document.title, window.location.pathname + window.location.search);
 
-    await placeNav();
-    fixNavBar();
+    await fixNavBar();
+    showContent();
 
     window.onscroll = fixNavBar;
     window.onresize = () => {
@@ -18,16 +18,6 @@ window.onhashchange = () => {
 
 let menuOpen = false;
 let inDesktop = window.innerWidth >= 1000;
-
-async function placeNav() {
-    const body = document.getElementsByTagName('body')[0];
-    const navHTML = await getFileText('/nav.html');
-
-    body.innerHTML = navHTML + body.innerHTML;
-
-    const menuBtn = document.getElementById('hamburger-menu').children[0];
-    menuBtn.addEventListener('click', openMenu);
-}
 
 function openMenu(ev, menuState) {
     const navBar = document.getElementsByTagName('nav')[0];
@@ -100,6 +90,16 @@ function fixNavBar() {
         navBar.style.backgroundColor = '#15151800';
         navBar.style.height = '100px';
     }
+}
+
+function showContent() {
+    const navBar = document.getElementsByTagName('nav')[0];
+    const main = document.getElementsByTagName('main')[0];
+    const gray_boars = document.getElementsByClassName('.gray-boar')[0];
+
+    navBar.style.display = 'flex';
+    main.style.display = 'flex';
+    gray_boars.style.display = 'block';
 }
 
 function fixBottomMargin() {

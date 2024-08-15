@@ -80,7 +80,7 @@ nav {
     padding-right: 50px;
     height: 100px;
     width: calc(100% - 50px);
-    display: flex;
+    display: none;
     justify-content: right;
     align-items: center;
     list-style-type: none;
@@ -93,7 +93,7 @@ nav li {
 
 main {
     margin: 175px 25px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -198,6 +198,7 @@ li#nav-left {
 }
 
 .gray-boar {
+    display: none;
     width: 400px;
     position: absolute;
     right: -100px;
