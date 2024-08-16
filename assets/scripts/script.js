@@ -61,27 +61,15 @@ function openMenu(ev, menuState) {
     }
 }
 
-function setOpacity() {
-    const navBar = document.getElementsByTagName('nav')[0];
-    const main = document.getElementsByTagName('main')[0];
-    const gray_boars = document.getElementsByClassName('gray-boars')[0];
-
-    navBar.style.opacity = '0';
-    main.style.opacity = '0';
-    gray_boars.style.opacity = '0';
-}
-
 function placeGrayBoars() {
     const body = document.getElementsByTagName('body')[0];
-    const bodyHeight = Math.max(body.clientHeight, window.innerHeight+1);
     const boarSpacing = window.innerHeight;
-    const numBoars = Math.ceil(bodyHeight / boarSpacing);
 
     const grayBoarDiv = document.createElement('div');
     grayBoarDiv.className = 'gray-boars';
     grayBoarDiv.style.height = Math.max(body.clientHeight, window.innerHeight) + 'px';
 
-    for (let i=0; i<numBoars; i++) {
+    for (let i=0; i<10; i++) {
         const grayBoarElement = document.createElement('img');
         grayBoarElement.className = 'gray-boar';
         grayBoarElement.src = '/assets/images/BoarBotMascotGray.png';
@@ -105,13 +93,16 @@ function fixNavBar() {
 }
 
 function showContent() {
+    const body = document.getElementsByTagName('body')[0];
     const navBar = document.getElementsByTagName('nav')[0];
     const main = document.getElementsByTagName('main')[0];
-    const gray_boars = document.getElementsByClassName('gray-boars')[0];
+    const grayBoarDiv = document.getElementsByClassName('gray-boars')[0];
 
     navBar.style.display = 'flex';
     main.style.display = 'flex';
-    gray_boars.style.display = 'block';
+    grayBoarDiv.style.display = 'flex';
+
+    grayBoarDiv.style.height = Math.max(body.clientHeight, window.innerHeight) + 'px';
 }
 
 function fixBottomMargin() {
