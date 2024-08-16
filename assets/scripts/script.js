@@ -3,6 +3,7 @@ window.onload = async () => {
     fixBottomMargin();
     history.pushState('', document.title, window.location.pathname + window.location.search);
 
+    document.getElementById('hamburger-menu').children[0].addEventListener('click', openMenu);
     fixNavBar();
 
     window.onscroll = fixNavBar;
