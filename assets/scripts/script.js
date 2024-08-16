@@ -89,19 +89,6 @@ function fixNavBar() {
     }
 }
 
-function showContent() {
-    const body = document.getElementsByTagName('body')[0];
-    const navBar = document.getElementsByTagName('nav')[0];
-    const main = document.getElementsByTagName('main')[0];
-    const grayBoarDiv = document.getElementsByClassName('gray-boars')[0];
-
-    navBar.style.display = 'flex';
-    main.style.display = 'flex';
-    grayBoarDiv.style.display = 'flex';
-
-    grayBoarDiv.style.height = Math.max(body.clientHeight, window.innerHeight) + 'px';
-}
-
 function fixBottomMargin() {
     const main = document.getElementsByTagName('main')[0];
     if (window.innerWidth < 1000) {
