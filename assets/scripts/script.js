@@ -3,8 +3,10 @@ window.onload = async () => {
     fixBottomMargin();
     history.pushState('', document.title, window.location.pathname + window.location.search);
 
-    await fixNavBar();
-    showContent();
+    fixNavBar();
+    setTimeout(() => {
+        showContent();
+    }, 300);
 
     window.onscroll = fixNavBar;
     window.onresize = () => {
@@ -59,6 +61,16 @@ function openMenu(ev, menuState) {
     }
 }
 
+function setOpacity() {
+    const navBar = document.getElementsByTagName('nav')[0];
+    const main = document.getElementsByTagName('main')[0];
+    const gray_boars = document.getElementsByClassName('gray-boars')[0];
+
+    navBar.style.opacity = '0';
+    main.style.opacity = '0';
+    gray_boars.style.opacity = '0';
+}
+
 function placeGrayBoars() {
     const body = document.getElementsByTagName('body')[0];
     const bodyHeight = Math.max(body.clientHeight, window.innerHeight+1);
@@ -95,7 +107,7 @@ function fixNavBar() {
 function showContent() {
     const navBar = document.getElementsByTagName('nav')[0];
     const main = document.getElementsByTagName('main')[0];
-    const gray_boars = document.getElementsByClassName('.gray-boar')[0];
+    const gray_boars = document.getElementsByClassName('gray-boars')[0];
 
     navBar.style.display = 'flex';
     main.style.display = 'flex';
@@ -133,11 +145,4 @@ function fixNavMenu() {
         menu.style.opacity = 0;
         setTimeout(() => openMenu(undefined, menuOpen), 10);
     }
-}
-
-async function getFileText(path) {
-    const result = await fetch(path);
-    const resultText = await result.text();
-
-    return resultText;
 }

@@ -190,6 +190,7 @@ li#nav-left {
 }
 
 .gray-boars {
+    display: none;
     z-index: -1;
     width: 100vw;
     height: 100vh;
@@ -198,7 +199,6 @@ li#nav-left {
 }
 
 .gray-boar {
-    display: none;
     width: 400px;
     position: absolute;
     right: -100px;
