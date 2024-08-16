@@ -4,9 +4,6 @@ window.onload = async () => {
     history.pushState('', document.title, window.location.pathname + window.location.search);
 
     fixNavBar();
-    setTimeout(() => {
-        showContent();
-    }, 300);
 
     window.onscroll = fixNavBar;
     window.onresize = () => {
