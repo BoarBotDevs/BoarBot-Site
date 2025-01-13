@@ -1,10 +1,14 @@
 window.onload = async () => {
     placeGrayBoars();
     fixBottomMargin();
-    history.pushState('', document.title, window.location.pathname + window.location.search);
 
-    document.getElementById('hamburger-menu').children[0].addEventListener('click', openMenu);
+    document.getElementById('hamburger-button').addEventListener('click', openMenu);
     fixNavBar();
+
+    const features = document.querySelectorAll('.feature');
+    features.forEach((el, index) => {
+        el.style.animationDelay = `${(index + 3) * 0.2}s`
+    });
 
     window.onscroll = fixNavBar;
     window.onresize = () => {
@@ -12,16 +16,13 @@ window.onload = async () => {
         fixNavMenu();
     };
 };
-window.onhashchange = () => {
-    history.pushState('', document.title, window.location.pathname + window.location.search);
-};
 
 let menuOpen = false;
 let inDesktop = window.innerWidth >= 1000;
 
-function openMenu(ev, menuState) {
+function openMenu(_, menuState) {
     const navBar = document.getElementsByTagName('nav')[0];
-    const menuBtn = document.getElementById('hamburger-menu').children[0];
+    const menuBtn = document.getElementById('hamburger-button');
     const menu = document.getElementById('nav-items');
 
     if (menuState !== undefined) {
