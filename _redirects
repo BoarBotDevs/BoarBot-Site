@@ -1,5 +1,4 @@
 /:slug /
-/:splat/ /:splat 301!
 https://source.boarbot.dev/* https://github.com/BoarBotDevs/BoarBot 301!
 http://source.boarbot.dev/* https://github.com/BoarBotDevs/BoarBot 301!
 https://invite.boarbot.dev/* https://discord.com/oauth2/authorize?client_id=1025590776861819012&permissions=101376&scope=bot+applications.commands 301!
