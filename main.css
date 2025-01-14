@@ -61,7 +61,8 @@
     --accent-boar-rotation: -20deg;
 
     /* Main Content Values */
-    --main-margin: calc(var(--nav-height) + calc(15 * var(--base-spacing))) calc(5 * var(--base-spacing));
+    --main-margin: calc(var(--nav-height) + calc(15 * var(--base-spacing))) 0;
+    --main-padding: 0 calc(5 * var(--base-spacing));;
     --main-max-width: calc(180 * var(--base-spacing));
 }
 
@@ -255,11 +256,13 @@ nav {
 
 main {
     margin: var(--main-margin);
+    padding: var(--main-padding);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     max-width: var(--main-max-width);
+    width: 100%;
 }
 
 #summary {
