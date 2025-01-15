@@ -5,9 +5,10 @@ window.onload = async () => {
     document.getElementById('hamburger-button').addEventListener('click', openMenu);
     fixNavBar();
 
+    const delayInterval = getPropertyAsNumber('--main-animation-delay-interval');
     const features = document.querySelectorAll('.feature');
     features.forEach((el, index) => {
-        el.style.animationDelay = `${(index + 3) * 0.2}s`
+        el.style.animationDelay = `${(index + 3) * delayInterval}s`
     });
 
     window.onscroll = fixNavBar;
@@ -33,8 +34,8 @@ function openMenu(_, menuState) {
         menuBtn.classList.add('open');
         menuOpen = true;
 
-        navBar.style.backgroundColor = '#151518bb';
-        navBar.style.height = '75px';
+        navBar.style.backgroundColor = getProperty('--transparent-bg-color');
+        navBar.style.height = getProperty('--nav-height-shrunk');
         menu.style.display = 'flex';
 
         if (window.scrollY <= 100) {
@@ -53,8 +54,8 @@ function openMenu(_, menuState) {
         setTimeout(() => {
             menu.style.display = 'none';
             if (window.scrollY <= 100) {
-                navBar.style.backgroundColor = '#15151800';
-                navBar.style.height = '100px';
+                navBar.style.backgroundColor = '#00000000';
+                navBar.style.height = getProperty('--nav-height');;
             }
         }, 333);
     }
@@ -83,11 +84,11 @@ function fixNavBar() {
     const navBar = document.getElementsByTagName('nav')[0];
 
     if (window.scrollY > 100) {
-        navBar.style.backgroundColor = '#151518bb';
-        navBar.style.height = '75px';
+        navBar.style.backgroundColor = getProperty('--transparent-bg-color');
+        navBar.style.height = getProperty('--nav-height-shrunk');
     } else if (!menuOpen || inDesktop) {
-        navBar.style.backgroundColor = '#15151800';
-        navBar.style.height = '100px';
+        navBar.style.backgroundColor = '#00000000';
+        navBar.style.height = getProperty('--nav-height');
     }
 }
 
@@ -106,10 +107,10 @@ function fixNavMenu() {
     
     if (window.scrollY <= 100 && (!menuOpen || inDesktop)) {
         navBar.style.backgroundColor = '#15151800';
-        navBar.style.height = '100px';
+        navBar.style.height = getProperty('--nav-height');
     } else {
-        navBar.style.backgroundColor = '#151518bb';
-        navBar.style.height = '75px';
+        navBar.style.backgroundColor = getProperty('--transparent-bg-color');
+        navBar.style.height = getProperty('--nav-height-shrunk');
     }
 
     if (window.innerWidth >= 1000 && !inDesktop) {
@@ -122,4 +123,12 @@ function fixNavMenu() {
         menu.style.opacity = 0;
         setTimeout(() => openMenu(undefined, menuOpen), 10);
     }
+}
+
+function getProperty(propertyValue) {
+    return getComputedStyle(document.documentElement).getPropertyValue(propertyValue);
+}
+
+function getPropertyAsNumber(propertyValue) {
+    return parseFloat(getComputedStyle(document.documentElement).getPropertyValue(propertyValue).replace(/[^0-9.]/g, ''));
 }
